@@ -1,15 +1,22 @@
 <template>
   <div>
-    我是根组件
+    <Header></Header>
+    <router-view></router-view>
+    <Footer v-show="$route.meta.show"></Footer>
   </div>
 </template>
 
 <script>
-  export default {
-    
-  }
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+export default {
+  name: "",
+  components: {
+    Header,
+    Footer,
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
 </style>
