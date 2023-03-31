@@ -5,3 +5,5 @@ export const reqCategoryList = () => requests({ url: '/product/getBaseCategoryLi
 import mockRequests from './mockrequest';
 
 export const reqGetBannerList = () => mockRequests({ url: '/banner', method: 'get' });
+
+export const reqFloorList = () => mockRequests({ url: '/floor', method: 'get' });
