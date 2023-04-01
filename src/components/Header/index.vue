@@ -61,6 +61,7 @@ export default {
       keyword: "",
     };
   },
+
   methods: {
     goSearch() {
       if (this.$route.query) {
@@ -73,6 +74,12 @@ export default {
         this.$router.push(location);
       }
     },
+  },
+
+  mounted() {
+    this.$bus.$on("clear", () => {
+      this.keyword = "";
+    });
   },
 };
 </script>
