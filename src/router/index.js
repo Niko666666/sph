@@ -1,10 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
-import Home from '@/pages/Home'
-import Search from '@/pages/Search'
-import Login from '@/pages/Login'
-import Register from '@/pages/Register'
+import routes from './routes';
+
 
 let originPush = VueRouter.prototype.push;
 let originReplace = VueRouter.prototype.replace;
@@ -26,36 +24,9 @@ VueRouter.prototype.replace = function (location, resolve, reject) {
 }
 
 export default new VueRouter({
-  routes: [
-    {
-      path: "/home",
-      component: Home,
-      meta:{show: true}
-    }
-    ,
-    {
-      path: "/search/:keyword?",
-      // path: "/search",
-      component: Search,
-      meta: { show: true },
-      name: "search",
-    }
-    ,
-    {
-      path: "/login",
-      component: Login,
-      meta:{show: false}
-    }
-    ,
-    {
-      path: "/register",
-      component: Register,
-      meta:{show: false}
-    }
-    ,
-    {
-      path: "*",
-      redirect: "/home"
-    }
-  ]
+  routes,
+
+  scrollBehavior(to, from, savedPositon) {
+    return{y:0}
+  }
 })
